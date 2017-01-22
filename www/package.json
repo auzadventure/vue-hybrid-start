@@ -1,0 +1,24 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "description": "starter",
+  "main": "main.js",
+  "dependencies": {
+    "vue": "^2.1.10"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.1.8",
+    "babelify": "^7.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "browser": {
+    "vue": "vue/dist/vue.common"
+			},
+
+  "transform": [["babelify", { "comments": false }]]
+
+}
