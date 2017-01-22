@@ -25,7 +25,7 @@
     <div class="left">
       <ons-back-button>Back</ons-back-button>
     </div>
-    <div class="center">Title</div>
+    <div class="center">Start App</div>
     <div class="right">
       <ons-toolbar-button>
         <ons-icon icon="md-menu"></ons-icon>
@@ -34,6 +34,70 @@
   </ons-toolbar>
 
   <div id="app">
+  
+
+
+
+<ons-list>  
+   <ons-list-item>
+    <div class="left">ID</div>
+    <div class="center">Exercise</div>
+    <div class="right">Total Reps</div>
+  </ons-list-item>
+
+  <ons-list-item v-for="exercise in exercises">
+    <div class="left">
+	<input type='radio' v-model='session.exerciseID' v-bind:value="exercise.$loki"></input>
+	</div>
+    <div class="center">
+	<ons-icon
+	icon="fa-hand-rock-o" style='margin-right:10px'>
+	</ons-icon>
+	 {{exercise.name}}</div>
+    <div class="right">{{exercise.reps.join()}}</div>
+  </ons-list-item>
+</ons-list>  
+  
+ 	<hr> 
+  
+  <div style="text-align: center; margin-top: 30px;">
+    <div v-if="showAddToggle">
+	
+	<p>
+	<input type="text" placeholder="Exerise" v-model='exercise' class="form_input" ></input>
+	<ons-button v-on:click="addExercise">
+		<ons-icon icon='fa-plus'></ons-icon>Add Exercise
+	</ons-button>
+	<button class="alert-dialog-button" v-on:click="closeAdd">
+		<ons-icon icon='fa-minus'></ons-icon> Close this</button>
+	</p>
+	</div>
+	
+	<div v-if="session.exerciseID !=''">
+	<p><label>Reps</label></p>
+	<input type='text' v-model='session.rep' class='form_input'
+	placeholder='Reps' size='5'></input>
+	<ons-button v-on:click="record">Record Reps</ons-button>
+	<ons-button v-on:click="removeRep">Remove Rep</ons-button>
+	<ons-button v-on:click="delExercise" class="green">Remove Exercise</ons-button>
+	</div>
+  </div>
+ 
+
+<ons-row>
+ 
+   <ons-col width='90%'></ons-col>
+   <ons-col width="10%">
+ <ons-fab v-on:click="showAdd">
+  <ons-icon icon="fa-plus"></ons-icon>
+</ons-fab>  
+   
+   </ons-col>
+</ons-row>
+ 
+
+
+
   {{ message }}
 </div>
 </ons-page>

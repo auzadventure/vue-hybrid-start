@@ -1,2 +1,11 @@
 /**/
 
+.green {
+	background-color: #80cbc4;
+}
+
+.form_input {
+	padding: 10px;
+	font-size: 15px;
+	
+}
